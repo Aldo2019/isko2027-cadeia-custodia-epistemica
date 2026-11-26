@@ -1,0 +1,29 @@
+==============================================================================
+VERIFICACAO PROPRIA DA FAMILIA q >= 17 (INTERPOLACAO EXATA VIA MOBIUS/CADEIAS)
+==============================================================================
+Pontos avaliados: q = 17..76 (N = 60; treino = 50, controle = 10)
+
+--- P_H(s) = -D_H(17 + s) ---
+  Grau exato:                         43
+  Numero de coeficientes (s^0..s^43): 44
+  Coeficiente lider [s^43]:           4
+  Todos os coeficientes > 0:          True
+  Menor coeficiente:                  4
+  Maior coeficiente:                  99473390777645609745976385128840829321835598749690015
+  Termo constante P(0) = -D(17):      11062769241414341239970603495681493737981374532130995
+  Conferencia exata treino (50 pts):  True
+  Conferencia exata controle (10 pts): True
+
+--- P_F(s) = -D_F(17 + s) ---
+  Grau exato:                         43
+  Numero de coeficientes (s^0..s^43): 44
+  Coeficiente lider [s^43]:           4
+  Todos os coeficientes > 0:          True
+  Menor coeficiente:                  4
+  Maior coeficiente:                  298414424476824217202010263179754140792326213469378625/3
+  Termo constante P(0) = -D(17):      11061733404916469626152098526056073213151599377977031
+  Conferencia exata treino (50 pts):  True
+  Conferencia exata controle (10 pts): True
+
+RESULTADO FINAL: GRAU 43, 44 COEFICIENTES RACIONAIS ESTRITAMENTE POSITIVOS E
+COEFICIENTE LIDER 4 CONFIRMADOS EXATAMENTE PARA P_H(s) E P_F(s) (D < 0 PARA TODO q >= 17).

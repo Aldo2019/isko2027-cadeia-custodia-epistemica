@@ -5,9 +5,11 @@ type: software
 title: "Cadeia de custódia epistêmica do conhecimento matemático produzido por IA — Material suplementar (ISKO-Brasil 2027)"
 authors:
   - name: "Autores do artigo submetido à ISKO-Brasil 2027"
-version: "0.1.0-anon"
+version: "0.2.0-anon"
 date-released: "2026-11-25"
-license: MIT
+license:
+  - MIT
+  - CC-BY-4.0
 keywords:
   - organização do conhecimento
   - proveniência
@@ -21,4 +23,5 @@ abstract: >-
   computacional independente e referências bibliográficas) de estudo sobre
   proveniência, cadeia de custódia epistêmica e organização do conhecimento
   matemático produzido por IA, centrado no caso da refutação da Conjectura 7.3
-  de Caiolo, Ferroni e Hoster (arXiv:2605.28474v1).
+  de Caiolo, Ferroni e Hoster (arXiv:2605.28474v1). Inclui declaração do uso
+  de ferramentas de IA na auditoria.

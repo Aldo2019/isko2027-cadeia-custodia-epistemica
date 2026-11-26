@@ -3,3 +3,7 @@ contraprova/contraprova_saida.txt -text
 coleta/hashes_sha256.txt -text
 coleta/git_ls_tree_HEAD.txt -text
 contraprova/contraprova_conj73.py -text
+contraprova/reproducao_fracoes.py -text
+contraprova/reproducao_fracoes_saida.txt -text
+contraprova/verificacao_familia_q.py -text
+contraprova/verificacao_familia_q_saida.txt -text

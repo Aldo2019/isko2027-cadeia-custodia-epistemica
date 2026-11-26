@@ -105,12 +105,12 @@
   - $F^*_{M_q}(x) = h_0(1+x)^5 + h_1 x(1+x)^3 + h_2 x^2(1+x)$:
     - $(h_0, h_1, h_2) = (1367432169863264385040621589,\ 677047053626088109460305403,\ 85827739133054463066849240)$
     - $h_1^2 - 4h_0h_2 = -11061733404916469626152098526056073213151599377977031 < 0$
-- **[FATO]** Para todo $q \ge 17$, os discriminantes negados deslocados $-D_{H^*}(17+s)$ e $-D_{F^*}(17+s)$ têm grau `43`, `44` coeficientes racionais estritamente positivos e coeficiente líder `4`.
+- **[FATO — alegação do repositório, confirmada por verificação própria]** O repositório afirma que, para todo $q \ge 17$, os discriminantes negados deslocados $-D_{H^*}(17+s)$ e $-D_{F^*}(17+s)$ são polinômios em $s$ de grau `43`, com `44` coeficientes racionais estritamente positivos e coeficiente líder `4` ([`PROOF.md#L101`](https://github.com/1337isnot1337/solved-conjectures/blob/53967e7fa1b07a5e6f91584818ddb11fd64594d9/results/caiolo-ferroni-hoster/PROOF.md#L101)). Essa afirmação foi confirmada por verificação própria via interpolação exata de Newton em $\mathbb{Q}[s]$ sobre os valores gerados pela função de Möbius e Teorema 4.1 (`50` pontos de treino $q = 17\dots 66$ e conferência exata em `10/10` pontos de controle $q = 67\dots 76$) em [`contraprova/verificacao_familia_q.py`](../contraprova/verificacao_familia_q.py) (saída em [`contraprova/verificacao_familia_q_saida.txt`](../contraprova/verificacao_familia_q_saida.txt)), confirmando grau `43`, `44` coeficientes estritamente positivos e coeficiente líder `4` para ambos os polinômios. A verificação algébrica vale para todo inteiro $q \ge 17$; a construção da matroide exige $q$ potência de primo, o que restringe apenas os casos em que a matroide existe.
 
 ### 6.4 Método computacional
 
 - **[FATO]** O repositório fornece [`verify_counterexample.py`](https://github.com/1337isnot1337/solved-conjectures/blob/53967e7fa1b07a5e6f91584818ddb11fd64594d9/results/caiolo-ferroni-hoster/verify_counterexample.py) (Teorema 4.9 em `#L32-L37` e Proposições 4.6–4.7 em `#L113-L129`) e [`verify_ranks.py`](https://github.com/1337isnot1337/solved-conjectures/blob/53967e7fa1b07a5e6f91584818ddb11fd64594d9/results/caiolo-ferroni-hoster/verify_ranks.py) (postos 5–8), exigindo `Python 3.9+` e `SymPy 1.14.0`. O Teorema 1.1 / Teorema 4.1 (fórmula de cadeias com $\mu$) não é utilizado nesses scripts.
-- **[FATO]** Na execução em sandbox offline sem `sympy`, ambos os scripts do repositório falharam com `ModuleNotFoundError: No module named 'sympy'`. A reprodução simbólica equivalente em Python puro (`fractions.Fraction`) confirmou 100% das asserções.
+- **[FATO]** Na execução em sandbox offline sem `sympy`, ambos os scripts do repositório falharam com `ModuleNotFoundError: No module named 'sympy'`. A reprodução das asserções desses scripts em Python puro (`fractions.Fraction`), sem SymPy, está em [`contraprova/reproducao_fracoes.py`](../contraprova/reproducao_fracoes.py), com saída em [`contraprova/reproducao_fracoes_saida.txt`](../contraprova/reproducao_fracoes_saida.txt) (classificação: adaptação sob MIT).
 
 ### 6.5 Formalização Lean e axiomas
 
@@ -134,7 +134,7 @@
      - $H^*_{M_{17}}(x)$ (`0` raízes reais): $-1.63785357007153712361004932973479278 \pm 0.06126523575046347530728032405184279\,i$ e $-0.60970209962865246782780583366440749 \pm 0.02280639951816355508681623323756625\,i$.
      - $F^*_{M_{17}}(x)$ (`1` raiz real simples exata $x_0=-1$): $-1.63786266039197093353575081567695461 \pm 0.06126197018714927497629584470713768\,i$ e $-0.60969881598231571604807637786612594 \pm 0.02280493449854334296103099007196312\,i$.
 
-**Alcance da independência.** A contraprova é independente quanto ao código e à via de cálculo: usa a função de Möbius, o Teorema 4.1 (fórmula de cadeias) e a Proposição 4.7 do artigo de Caiolo, Ferroni e Hoster, ao passo que os scripts do repositório auditado usam o Teorema 4.9 e as Proposições 4.6–4.7. Não é independente quanto à descrição estrutural de $L(M_{17})$: os tipos de flats, as multiplicidades e a estrutura dos intervalos foram modelados a partir da construção descrita em `PROOF.md`, porque a matroide ($|E| = 436.068.361$) não pode ser enumerada explicitamente. A verificação exaustiva dos axiomas de matroide foi feita numa miniatura ($q = 2$, posto 3), e a propriedade dos núcleos dos mapas linearizados foi testada exaustivamente em posto 5 sobre $\mathbb{F}_{2^4}$, ou seja, o análogo com $q = 2$. Para $q = 17$ ela decorre do argumento teórico (polinômios linearizados de $q$-grau $\le q^3$ têm núcleo de dimensão $\le 3$) e não de cálculo direto. A docstring do script, ao falar em "demonstração estrutural dos axiomas de matroide para M_q (q=17)", deve ser lida nesse sentido.
+**Alcance da independência.** A contraprova é independente quanto ao código e à via de cálculo: usa a função de Möbius, o Teorema 4.1 (fórmula de cadeias) e a Proposição 4.7 do artigo de Caiolo, Ferroni e Hoster, ao passo que os scripts do repositório auditado usam o Teorema 4.9 e as Proposições 4.6–4.7. Não é independente quanto à descrição estrutural de $L(M_{17})$: os tipos de flats, as multiplicidades e a estrutura dos intervalos foram modelados a partir da construção descrita em `PROOF.md`, porque a matroide ($|E| = 436.068.361$) não pode ser enumerada explicitamente. A verificação exaustiva dos axiomas de matroide foi feita numa miniatura ($q = 2$, posto 3), e a propriedade dos núcleos dos mapas linearizados foi testada exaustivamente em posto 5 sobre $\mathbb{F}_{2^4}$, ou seja, o análogo com $q = 2$. Para $q = 17$ ela decorre do argumento teórico (polinômios linearizados de $q$-grau $\le q^3$ têm núcleo de dimensão $\le 3$) e não de cálculo direto. A docstring do script, ao falar em "demonstração estrutural dos axiomas de matroide para M_q (q=17)", deve ser lida nesse sentido. Observação: a docstring menciona 50 dígitos internos; a precisão efetivamente usada é de 60 dígitos (`getcontext().prec = 60`), como registrado na saída.
 
 ---
 
@@ -172,11 +172,17 @@
 | `prov:Entity` | `ex:RefutationClaimRepo` | Alegação publicada em `results/caiolo-ferroni-hoster/` (`HEAD` `53967e7f`). `[FATO]` | `wasGeneratedBy ex:ActPublishAndFormalize`; `wasDerivedFrom ex:DiscriminantsRepo` | `2026-11-25T06:53:50Z` |
 | `prov:Activity` | `ex:ActIndependentCounterproof` | Contraprova independente (Möbius + Teorema 4.1 + Prop. 4.7). `[FATO]` | `used ex:Paper2605_28474v1, ex:MatroidM17, ex:RefutationClaimRepo` | `2026-11-25T21:04:28-03:00` a `2026-11-25T21:04:51-03:00` |
 | `prov:Entity` | `ex:IndependentCounterproofOutput` | `contraprova/contraprova_saida.txt` (100% de coincidência exata). `[FATO]` | `wasGeneratedBy ex:ActIndependentCounterproof`; `wasDerivedFrom ex:Paper2605_28474v1, ex:MatroidM17` | `2026-11-25T21:04:51-03:00` |
+| `prov:Agent` | `ex:AutoresDoArtigo` | Autores do artigo submetido (anonimizados). `[FATO]` | `wasAssociatedWith`, `wasAttributedTo` | — |
+| `prov:SoftwareAgent` | `ex:AgenteIAAuditoria` | Google Antigravity (`Gemini 2.5 Pro`). `[FATO]` | `actedOnBehalfOf ex:AutoresDoArtigo` | — |
+| `prov:SoftwareAgent` | `ex:AssistenteIAPlanejamento` | Claude (Anthropic), `Claude Opus 4.6`. `[FATO]` | `actedOnBehalfOf ex:AutoresDoArtigo` | — |
+| `prov:Activity` | `ex:ActWriteCounterproofScript` | Redação do script de contraprova. `[FATO]` | `wasAssociatedWith ex:AgenteIAAuditoria, ex:AutoresDoArtigo`; `used ex:Paper2605_28474v1, ex:RefutationClaimRepo` | `2026-11-25` |
+| `prov:Entity` | `ex:CounterproofScript` | `contraprova/contraprova_conj73.py` (SHA-256 `6DBDE557…7CE87`). `[FATO]` | `wasGeneratedBy ex:ActWriteCounterproofScript`; `wasAttributedTo ex:AutoresDoArtigo` | `2026-11-25` |
 
-### 9.2 Representação em Turtle (`prov:`, `xsd:`, `ex:`)
+### 9.2 Representação em Turtle (`prov:`, `rdfs:`, `xsd:`, `ex:`)
 
 ```turtle
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix ex:   <https://example.org/isko2027/cadeia-custodia/cfh73#> .
 
@@ -191,7 +197,28 @@ ex:GitHub               a prov:Organization .
 ex:GPT62Astra a prov:SoftwareAgent ;
     prov:actedOnBehalfOf ex:Autor1337isnot1337 .
 
-ex:PythonIndependentVerifier a prov:SoftwareAgent .
+ex:PythonIndependentVerifier a prov:SoftwareAgent ;
+    prov:actedOnBehalfOf ex:AutoresDoArtigo .
+
+# Agentes da propria auditoria (declaracao de uso de IA)
+ex:AutoresDoArtigo a prov:Agent .
+
+ex:AgenteIAAuditoria a prov:SoftwareAgent ;
+    rdfs:label "Google Antigravity (Gemini 2.5 Pro)" ;
+    prov:actedOnBehalfOf ex:AutoresDoArtigo .
+
+ex:AssistenteIAPlanejamento a prov:SoftwareAgent ;
+    rdfs:label "Claude, Anthropic (Claude Opus 4.6)" ;
+    prov:actedOnBehalfOf ex:AutoresDoArtigo .
+
+ex:ActWriteCounterproofScript a prov:Activity ;
+    prov:used ex:Paper2605_28474v1, ex:RefutationClaimRepo ;
+    prov:wasAssociatedWith ex:AgenteIAAuditoria, ex:AutoresDoArtigo .
+
+ex:CounterproofScript a prov:Entity ;
+    prov:wasGeneratedBy ex:ActWriteCounterproofScript ;
+    prov:wasAttributedTo ex:AutoresDoArtigo ;
+    ex:sha256 "6DBDE557B61361245C6A5D8E506DE97C6821EB491EF4E9BBBACE94050FB7CE87" .
 
 # Cadeia: artigo arXiv -> conjectura 7.3 -> matroide -> calculo -> discriminantes -> alegacao -> contraprova
 ex:Paper2605_28474v1 a prov:Entity ;
@@ -245,13 +272,15 @@ ex:RefutationClaimRepo a prov:Entity ;
     prov:wasDerivedFrom ex:Conjecture7_3, ex:MatroidM17, ex:DiscriminantsRepo ;
     prov:wasAttributedTo ex:Autor1337isnot1337, ex:ContribuidorPR597 ;
     ex:headCommit "53967e7fa1b07a5e6f91584818ddb11fd64594d9" ;
-    ex:proofSha256 "B8B774D7D3D8819CE728B813AD078151E6FD58CA1D94548896F7F23215BC86BD" .
+    # ex:proofSha256 refere-se a copia de trabalho Windows (CRLF)
+    ex:proofSha256 "B8B774D7D3D8819CE728B813AD078151E6FD58CA1D94548896F7F23215BC86BD" ;
+    ex:proofGitBlob "cc6c33fa33f6e01bdc1cbace8ede81a61aa4df4b" .
 
 ex:ActIndependentCounterproof a prov:Activity ;
     prov:startedAtTime "2026-11-25T21:04:28-03:00"^^xsd:dateTime ;
     prov:endedAtTime   "2026-11-25T21:04:51-03:00"^^xsd:dateTime ;
-    prov:used ex:Paper2605_28474v1, ex:MatroidM17, ex:RefutationClaimRepo ;
-    prov:wasAssociatedWith ex:PythonIndependentVerifier .
+    prov:used ex:Paper2605_28474v1, ex:MatroidM17, ex:RefutationClaimRepo, ex:CounterproofScript ;
+    prov:wasAssociatedWith ex:PythonIndependentVerifier, ex:AgenteIAAuditoria, ex:AutoresDoArtigo .
 
 ex:IndependentCounterproofOutput a prov:Entity ;
     prov:wasGeneratedBy ex:ActIndependentCounterproof ;
@@ -286,7 +315,7 @@ ex:IndependentCounterproofOutput a prov:Entity ;
 
 ## 12. Questões em aberto e o que não foi possível verificar
 
-- **[FATO]** Recompilação local e `#print axioms` em Lean 4.35.0 (`mathlib4` `v4.35.0`) e verificação pelo kernel independente `Tenet 0.11.5`.
+- **[FATO]** Recompilação local e `#print axioms` em Lean 4.35.0 (`mathlib4` `v4.35.0`) e verificação pelo verificador independente `Tenet 0.11.5` mencionado no repositório auditado (não avaliado nesta coleta).
 - **[FATO]** Discussões externas em GitHub Issues `#111`, `#560` e PR `#597` (fora do clone Git offline).
 - **[FATO]** Questões matemáticas abertas registradas pelo suplemento (`RANKS.md#L108-L112`): posto $r = 4$ para $F^*$ e entrelaçamento, cota explícita $N(r)$ em Lean para $r \ge 6$, formalização do entrelaçamento para $r \le 3$, conexidade e representabilidade de $M_q$.
 - **[FATO]** Eventual resposta ou revisão posterior de `arXiv:2605.28474` pelos autores originais.
@@ -298,8 +327,27 @@ ex:IndependentCounterproofOutput a prov:Entity ;
 - [`coleta/relatorio_solved_conjectures_ISKO2027_publico.md`](relatorio_solved_conjectures_ISKO2027_publico.md) — este relatório sanitizado.
 - [`coleta/hashes_sha256.txt`](hashes_sha256.txt) — inventário SHA-256 da cópia de trabalho Windows (`core.autocrlf = true`) dos `17.456` arquivos versionados do repositório analisado no commit `53967e7fa1b07a5e6f91584818ddb11fd64594d9`.
 - [`coleta/git_ls_tree_HEAD.txt`](git_ls_tree_HEAD.txt) — saída de `git ls-tree -r --full-tree 53967e7fa1b07a5e6f91584818ddb11fd64594d9` com os hashes de blob Git (SHA-1) dos `17.456` arquivos, independentes de sistema operacional e fim de linha.
-- [`contraprova/contraprova_conj73.py`](../contraprova/contraprova_conj73.py) — script independente em Python puro.
-- [`contraprova/contraprova_saida.txt`](../contraprova/contraprova_saida.txt) — saída integral da contraprova.
+- [`contraprova/contraprova_conj73.py`](../contraprova/contraprova_conj73.py) — script independente em Python puro para $M_{17}$.
+- [`contraprova/contraprova_saida.txt`](../contraprova/contraprova_saida.txt) — saída integral da contraprova ($M_{17}$).
+- [`contraprova/verificacao_familia_q.py`](../contraprova/verificacao_familia_q.py) — verificação própria da família $q \ge 17$ via interpolação polinomial exata de Newton em $\mathbb{Q}[s]$.
+- [`contraprova/verificacao_familia_q_saida.txt`](../contraprova/verificacao_familia_q_saida.txt) — saída integral da verificação da família $q \ge 17$.
+- [`contraprova/reproducao_fracoes.py`](../contraprova/reproducao_fracoes.py) — reprodução das asserções dos scripts do repositório auditado em Python puro (`fractions.Fraction`, sem SymPy; classificação: adaptação sob MIT).
+- [`contraprova/reproducao_fracoes_saida.txt`](../contraprova/reproducao_fracoes_saida.txt) — saída integral da reprodução em `fractions.Fraction`.
 - [`contraprova/requirements.txt`](../contraprova/requirements.txt) — declaração de dependências (apenas biblioteca padrão Python 3.9+).
 - [`ontologia/README.md`](../ontologia/README.md) — espaço reservado da extensão PROV-O (em desenvolvimento).
 - [`referencias/referencias.bib`](../referencias/referencias.bib) e [`referencias/referencias_abnt.md`](../referencias/referencias_abnt.md) — referências bibliográficas e links.
+
+---
+
+## 14. Declaração de uso de IA nesta auditoria
+
+Esta auditoria foi realizada com apoio de ferramentas de inteligência artificial, sob direção e revisão dos autores do artigo:
+
+| Etapa | Ferramenta de IA | Papel da IA | Papel dos autores |
+|---|---|---|---|
+| Planejamento do projeto, redação dos prompts e revisão crítica dos resultados | Claude (Anthropic), Claude Opus 4.6 | Propôs a estrutura do estudo e os protocolos de coleta, contraprova, sanitização e publicação; revisou relatórios e apontou inconsistências | Definiram o problema e o método, decidiram o que adotar e aprovaram cada etapa |
+| Coleta pericial, implementação e execução da contraprova, sanitização e publicação | Google Antigravity, Gemini 2.5 Pro | Executou comandos, escreveu `contraprova/contraprova_conj73.py`, gerou os relatórios e os inventários de hashes | Especificaram os requisitos, conferiram as saídas e aprovaram a publicação (manifesto de auditoria local) |
+
+Nenhuma ferramenta de IA é autora deste material. Os autores assumem integral responsabilidade pelo conteúdo. A coincidência numérica com o repositório auditado foi conferida também por recálculo independente dos coeficientes $\gamma$, dos discriminantes e das raízes, fora do agente que escreveu a contraprova.
+
+A fragilidade apontada no repositório auditado (opacidade sobre o modelo que produziu cada artefato, Seção 11, item 6) é evitada aqui pela declaração explícita de cada agente e etapa.
