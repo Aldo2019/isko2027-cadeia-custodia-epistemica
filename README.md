@@ -82,13 +82,13 @@ Para conferir a integridade dos arquivos publicados (por exemplo, a saída da co
 **Windows (PowerShell):**
 
 ```powershell
-Get-FileHash -Algorithm SHA256 contraprova\contraprova_saida.txt, contraprova\contraprova_conj73.py, coleta\hashes_sha256.txt, coleta\git_ls_tree_HEAD.txt
+Get-FileHash -Algorithm SHA256 contraprova\contraprova_saida.txt, contraprova\contraprova_conj73.py, contraprova\verificacao_familia_q.py, contraprova\verificacao_familia_q_saida.txt, contraprova\reproducao_fracoes.py, contraprova\reproducao_fracoes_saida.txt, coleta\hashes_sha256.txt, coleta\git_ls_tree_HEAD.txt
 ```
 
 **Linux / macOS:**
 
 ```bash
-sha256sum contraprova/contraprova_saida.txt contraprova/contraprova_conj73.py coleta/hashes_sha256.txt coleta/git_ls_tree_HEAD.txt
+sha256sum contraprova/contraprova_saida.txt contraprova/contraprova_conj73.py contraprova/verificacao_familia_q.py contraprova/verificacao_familia_q_saida.txt contraprova/reproducao_fracoes.py contraprova/reproducao_fracoes_saida.txt coleta/hashes_sha256.txt coleta/git_ls_tree_HEAD.txt
 ```
 
 Os dois inventários em `coleta/` têm funções complementares na auditoria do commit `53967e7fa1b07a5e6f91584818ddb11fd64594d9` do repositório analisado (sem redistribuir arquivos de terceiros):
@@ -102,8 +102,8 @@ Esta auditoria foi realizada com apoio de ferramentas de inteligência artificia
 
 | Etapa | Ferramenta de IA | Papel da IA | Papel dos autores |
 |---|---|---|---|
-| Planejamento do projeto, redação dos prompts e revisão crítica dos resultados | Claude (Anthropic), Claude Opus 4.6 | Propôs a estrutura do estudo e os protocolos de coleta, contraprova, sanitização e publicação; revisou relatórios e apontou inconsistências | Definiram o problema e o método, decidiram o que adotar e aprovaram cada etapa |
-| Coleta pericial, implementação e execução da contraprova, sanitização e publicação | Google Antigravity, Gemini 2.5 Pro | Executou comandos, escreveu `contraprova/contraprova_conj73.py`, gerou os relatórios e os inventários de hashes | Especificaram os requisitos, conferiram as saídas e aprovaram a publicação (manifesto de auditoria local) |
+| Planejamento do projeto, redação dos prompts e revisão crítica dos resultados | Claude (Anthropic), Claude Opus 5.5 | Propôs a estrutura do estudo e os protocolos de coleta, contraprova, sanitização e publicação; revisou relatórios e apontou inconsistências | Definiram o problema e o método, decidiram o que adotar e aprovaram cada etapa |
+| Coleta pericial, implementação e execução da contraprova, sanitização e publicação | Google Antigravity, Gemini 3.5 Pro | Executou comandos, escreveu `contraprova/contraprova_conj73.py`, `contraprova/verificacao_familia_q.py` e `contraprova/reproducao_fracoes.py`, gerou os relatórios e os inventários de hashes | Especificaram os requisitos, conferiram as saídas e aprovaram a publicação (manifesto de auditoria local) |
 
 Nenhuma ferramenta de IA é autora deste material. Os autores assumem integral responsabilidade pelo conteúdo. A coincidência numérica com o repositório auditado foi conferida também por recálculo independente dos coeficientes γ, dos discriminantes e das raízes, fora do agente que escreveu a contraprova.
 
@@ -120,7 +120,7 @@ Esta declaração é deliberada: o artigo argumenta que a cadeia de custódia ep
 
 **MIT** (código em `contraprova/` — ver [`LICENSE`](LICENSE)) · **CC BY 4.0** (textos, dados, documentação e ontologia em `coleta/`, `ontologia/`, `referencias/` e `README.md` — ver [`LICENSE-DOCS`](LICENSE-DOCS)).
 
-Esta licença dupla aplica-se exclusivamente aos materiais de autoria própria contidos neste repositório e não se estende ao repositório de terceiros analisado nem às publicações bibliográficas citadas.
+Esta licença dupla aplica-se exclusivamente aos materiais de autoria própria contidos neste repositório e não se estende ao repositório de terceiros analisado nem às publicações bibliográficas citadas. Exceção: `contraprova/reproducao_fracoes.py` é adaptação de código do repositório auditado e mantém o aviso MIT original (`Copyright (c) 2026 Repository contributors`).
 
 ## Como citar
 
