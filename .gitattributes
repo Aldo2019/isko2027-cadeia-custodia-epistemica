@@ -1,0 +1,5 @@
+# Preserva os bytes exatos dos arquivos cujos hashes são publicados
+contraprova/contraprova_saida.txt -text
+coleta/hashes_sha256.txt -text
+coleta/git_ls_tree_HEAD.txt -text
+contraprova/contraprova_conj73.py -text

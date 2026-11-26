@@ -4,11 +4,11 @@ Somente dados bibliográficos e links (arXiv, DOI, URL), sem transcrição de re
 
 - AUTOR DO REPOSITÓRIO (pseudônimo 1337isnot1337); GPT-6.2 ASTRA. **Solved conjectures in combinatorics and number theory**. Repositório GitHub, commit `53967e7fa1b07a5e6f91584818ddb11fd64594d9`, 2026. Disponível em: <https://github.com/1337isnot1337/solved-conjectures>. Coleta em: 25 nov. 2026.
 
-- BÉRCZI, Kristóf; CORON, Basile; EUR, Christopher; LI, Shiyue. **Preprint arXiv:2610.17135v1**. 2026. Disponível em: <https://arxiv.org/abs/2610.17135>.
+- BÉRCZI, Gergely; CORON, Basile; EUR, Christopher; LI, Shiyue. **Chow polynomials and chain polynomials of matroids are not log-concave**. arXiv:2610.17135v1 [math.CO], 12 out. 2026. Disponível em: <https://arxiv.org/abs/2610.17135>.
 
 - CAIOLO, Giovanni; FERRONI, Luis; HOSTER, Elena. **Dual Chow polynomials of matroids and posets**. arXiv:2605.28474v1 [math.CO], 27 maio 2026. Disponível em: <https://arxiv.org/abs/2605.28474>.
 
-- FERRONI, Luis; MATHERNE, Jacob P.; VECCHI, Lorenzo. **Chow functions for partially ordered sets**. 2024.
+- FERRONI, Luis; MATHERNE, Jacob P.; VECCHI, Lorenzo. **Chow functions for partially ordered sets**. arXiv:2411.04070 [math.CO], 2024. Disponível em: <https://arxiv.org/abs/2411.04070>.
 
 - FERRONI, Luis; SCHRÖTER, Benjamin. Valuative invariants for large classes of matroids. **Journal of the London Mathematical Society**, ser. 2, v. 110, n. 3, p. e12984, 2024.
 

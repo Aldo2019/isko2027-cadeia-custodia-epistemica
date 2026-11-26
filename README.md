@@ -21,10 +21,12 @@ O crescimento de alegações matemáticas geradas ou assistidas por modelos de l
 ├── LICENSE                                            # Licença MIT aplicável ao código próprio (contraprova/)
 ├── LICENSE-DOCS                                       # Licença CC BY 4.0 aplicável a textos, dados e ontologia
 ├── CITATION.cff                                       # Metadados de citação (versão anonimizada)
+├── .gitattributes                                     # Preserva bytes exatos dos arquivos com hash publicado
 ├── .gitignore                                         # Regras de exclusão de PDFs, segredos e artefatos locais
 ├── coleta/
 │   ├── relatorio_solved_conjectures_ISKO2027_publico.md  # Relatório pericial sanitizado da coleta e auditoria
-│   └── hashes_sha256.txt                              # Manifesto SHA-256 dos 17.456 arquivos do commit coletado
+│   ├── hashes_sha256.txt                              # Manifesto SHA-256 da cópia de trabalho Windows (17.456 arquivos)
+│   └── git_ls_tree_HEAD.txt                           # Hashes de blob Git (SHA-1) independentes de plataforma (17.456 arquivos)
 ├── contraprova/
 │   ├── contraprova_conj73.py                          # Contraprova independente em Python puro (biblioteca padrão)
 │   ├── contraprova_saida.txt                          # Saída integral da execução de referência
@@ -67,23 +69,28 @@ RESULTADO FINAL: TODAS AS COMPARACOES COINCIDEM EXATAMENTE (100%).
 
 *(Nota: em sistemas Linux/macOS, o redirecionamento direto para arquivo utiliza quebras de linha LF em vez de CRLF, o que altera o hash bruto do arquivo embora o conteúdo textual seja idêntico; converta para CRLF antes de comparar o hash ou compare linha a linha com `diff --strip-trailing-cr`.)*
 
+**Alcance da independência.** A contraprova é independente quanto ao código e à via de cálculo: usa a função de Möbius, o Teorema 4.1 (fórmula de cadeias) e a Proposição 4.7 do artigo de Caiolo, Ferroni e Hoster, ao passo que os scripts do repositório auditado usam o Teorema 4.9 e as Proposições 4.6–4.7. Não é independente quanto à descrição estrutural de $L(M_{17})$: os tipos de flats, as multiplicidades e a estrutura dos intervalos foram modelados a partir da construção descrita em `PROOF.md`, porque a matroide ($|E| = 436.068.361$) não pode ser enumerada explicitamente. A verificação exaustiva dos axiomas de matroide foi feita numa miniatura ($q = 2$, posto 3), e a propriedade dos núcleos dos mapas linearizados foi testada exaustivamente em posto 5 sobre $\mathbb{F}_{2^4}$, ou seja, o análogo com $q = 2$. Para $q = 17$ ela decorre do argumento teórico (polinômios linearizados de $q$-grau $\le q^3$ têm núcleo de dimensão $\le 3$) e não de cálculo direto. A docstring do script, ao falar em "demonstração estrutural dos axiomas de matroide para M_q (q=17)", deve ser lida nesse sentido.
+
 ## Verificação de integridade
 
-Para conferir a integridade dos arquivos publicados (por exemplo, a saída da contraprova e o manifesto da coleta):
+Para conferir a integridade dos arquivos publicados (por exemplo, a saída da contraprova e os manifestos da coleta):
 
 **Windows (PowerShell):**
 
 ```powershell
-Get-FileHash -Algorithm SHA256 contraprova\contraprova_saida.txt, contraprova\contraprova_conj73.py, coleta\hashes_sha256.txt
+Get-FileHash -Algorithm SHA256 contraprova\contraprova_saida.txt, contraprova\contraprova_conj73.py, coleta\hashes_sha256.txt, coleta\git_ls_tree_HEAD.txt
 ```
 
 **Linux / macOS:**
 
 ```bash
-sha256sum contraprova/contraprova_saida.txt contraprova/contraprova_conj73.py coleta/hashes_sha256.txt
+sha256sum contraprova/contraprova_saida.txt contraprova/contraprova_conj73.py coleta/hashes_sha256.txt coleta/git_ls_tree_HEAD.txt
 ```
 
-O arquivo [`coleta/hashes_sha256.txt`](coleta/hashes_sha256.txt) (SHA-256 `F48F6DA08A31FB3F6B3939D05ABB2834E43E118660ABD6B0E60D7EF304F4849C`) registra os hashes SHA-256 individuais dos 17.456 arquivos rastreados no commit `53967e7fa1b07a5e6f91584818ddb11fd64594d9` do repositório auditado, permitindo auditar a integridade de uma cópia local daquele commit sem redistribuir arquivos de terceiros.
+Os dois inventários em `coleta/` têm funções complementares na auditoria do commit `53967e7fa1b07a5e6f91584818ddb11fd64594d9` do repositório analisado (sem redistribuir arquivos de terceiros):
+
+- [`coleta/hashes_sha256.txt`](coleta/hashes_sha256.txt) (SHA-256 `F48F6DA08A31FB3F6B3939D05ABB2834E43E118660ABD6B0E60D7EF304F4849C`): registra os hashes SHA-256 dos `17.456` arquivos na **cópia de trabalho Windows** onde a coleta foi realizada (`core.autocrlf = true`). Como arquivos de texto foram convertidos para CRLF no checkout Windows, a conferência direta desses SHA-256 em Linux/macOS (LF) produzirá divergência nos arquivos de texto.
+- [`coleta/git_ls_tree_HEAD.txt`](coleta/git_ls_tree_HEAD.txt) (SHA-256 `CB77571910058589F5408F2A6EA6CA8BF95D986F0D203D7B2C195CEFEBBD800F`): registra os **hashes de blob Git (SHA-1)** dos mesmos `17.456` arquivos, gerados com `git ls-tree -r --full-tree 53967e7fa1b07a5e6f91584818ddb11fd64594d9`. Como esses hashes correspondem aos objetos internos do Git, são totalmente independentes de plataforma e de conversão de fim de linha, podendo ser conferidos em qualquer sistema operacional com `git ls-tree -r 53967e7f`.
 
 ## Direitos autorais e uso de material de terceiros
 
