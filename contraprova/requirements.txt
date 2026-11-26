@@ -1,0 +1,5 @@
+# Dependências para contraprova/contraprova_conj73.py
+#
+# Nenhuma biblioteca externa é necessária: o script utiliza exclusivamente
+# a biblioteca padrão do Python 3.9+ (decimal, fractions, functools, itertools, math).
+# Testado em Python 3.13.17.

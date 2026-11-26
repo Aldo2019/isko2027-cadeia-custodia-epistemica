@@ -1,0 +1,34 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+# TODO: substituir pelo nome real após a avaliação.
+Titular provisório: Autores do artigo submetido à ISKO-Brasil 2027 (2026).
+
+Esta licença aplica-se aos textos, relatórios, dados, ontologias e documentação
+de autoria própria contidos neste repositório (pastas `coleta/`, `ontologia/`,
+`referencias/` e `README.md`). O código em `contraprova/` é licenciado sob MIT
+(ver arquivo `LICENSE`).
+
+Resumo oficial (human-readable summary) da licença CC BY 4.0:
+
+Você tem o direito de:
+- Compartilhar — copiar e redistribuir o material em qualquer suporte ou formato
+  para qualquer finalidade, mesmo comercial.
+- Adaptar — remixar, transformar e criar a partir do material para qualquer
+  finalidade, mesmo comercial.
+
+De acordo com os termos seguintes:
+- Atribuição — Você deve dar o crédito apropriado, prover um link para a licença
+  e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer circunstância
+  razoável, mas de maneira alguma que sugira ao licenciante apoiar você ou o seu
+  uso.
+- Sem restrições adicionais — Você não pode aplicar termos jurídicos ou medidas
+  de caráter tecnológico que restrinjam legalmente outros de fazerem algo que a
+  licença permita.
+
+Texto jurídico integral (Legal Code):
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Nota sobre material de terceiros:
+O repositório de terceiros analisado (`1337isnot1337/solved-conjectures`) e as
+obras bibliográficas referenciadas em `referencias/` NÃO são cobertos por esta
+licença e NÃO são redistribuídos neste repositório.

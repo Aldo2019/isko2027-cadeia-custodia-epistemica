@@ -1,0 +1,26 @@
+# Documentos e arquivos protegidos ou locais
+*.pdf
+*.docx
+*.json
+.env
+.env.*
+
+# Ambientes e caches Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Diretórios temporários / execução local
+sandbox/
+*.tmp
+*.bak

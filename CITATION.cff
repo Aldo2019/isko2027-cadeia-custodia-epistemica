@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+# TODO: substituir pelo nome real após a avaliação.
+message: "Se utilizar este material suplementar, cite conforme os metadados abaixo."
+type: software
+title: "Cadeia de custódia epistêmica do conhecimento matemático produzido por IA — Material suplementar (ISKO-Brasil 2027)"
+authors:
+  - name: "Autores do artigo submetido à ISKO-Brasil 2027"
+version: "0.1.0-anon"
+date-released: "2026-11-25"
+license: MIT
+keywords:
+  - organização do conhecimento
+  - proveniência
+  - cadeia de custódia epistêmica
+  - PROV-O
+  - matemática produzida por IA
+  - polinômios de Chow duais
+  - matroides
+abstract: >-
+  Material suplementar anonimizado (coleta forense sanitizada, contraprova
+  computacional independente e referências bibliográficas) de estudo sobre
+  proveniência, cadeia de custódia epistêmica e organização do conhecimento
+  matemático produzido por IA, centrado no caso da refutação da Conjectura 7.3
+  de Caiolo, Ferroni e Hoster (arXiv:2605.28474v1).
